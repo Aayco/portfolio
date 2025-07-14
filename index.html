@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>aayco - Pirate Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Courier New', monospace;
+      background: black;
+      color: white;
+      overflow-x: hidden;
+      transition: background 0.4s, color 0.4s;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .aurora-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(120deg, #3a29ff, #ff94b4, #ff3232);
+      background-size: 400% 400%;
+      animation: aurora 15s ease-in-out infinite;
+      z-index: -2;
+      mix-blend-mode: normal;
+    }
+    .scanlines {
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(to bottom, transparent, transparent 2px, rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 4px);
+      pointer-events: none;
+      z-index: 0;
+      mix-blend-mode: overlay;
+      opacity: 0.1;
+    }
+    @keyframes aurora {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .glitch-text {
+      position: relative;
+      animation: glitch 2s infinite;
+      text-shadow: 1px 0 red, 0 1px red, -1px 0 red, 0 -1px red;
+    }
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-1px, 1px); }
+      40% { transform: translate(1px, -1px); }
+      60% { transform: translate(-1px, -1px); }
+      80% { transform: translate(1px, 1px); }
+      100% { transform: translate(0); }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #444;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+    nav a {
+      margin-left: 1rem;
+      font-weight: bold;
+      color: #bbb;
+    }
+    nav a:hover {
+      color: white;
+    }
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      z-index: 2;
+      position: relative;
+    }
+    .hero img {
+      max-width: 180px;
+      border-radius: 999px;
+      margin-top: 2rem;
+      border: 3px solid red;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    section {
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: auto;
+    }
+    .icons i {
+      font-size: 2rem;
+      margin: 0.5rem;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #666;
+      padding: 1rem;
+      margin: 1rem auto;
+      border-radius: 10px;
+      max-width: 600px;
+      text-align: left;
+    }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid #444;
+    }
+
+    .toggle {
+      cursor: pointer;
+      border: 1px solid #666;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      background: none;
+      color: inherit;
+      margin-left: 1rem;
+    }
+
+    .snow {
+      pointer-events: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 9999;
+    }
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      color: white;
+      font-size: 1em;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="aurora-bg"></div>
+  <div class="scanlines"></div>
+  <div class="snow"></div>
+
+  <header>
+    <h1 class="glitch-text">aayco</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button onclick="toggleTheme()" class="toggle">🌗</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2 class="glitch-text">Welcome to my world</h2>
+    <p>I code bots, scripts, tools, and vibes 🏴‍☠️</p>
+    <img src="https://i.postimg.cc/PfBMRtS4/132670773-p0-master1200.webp" alt="profile" />
+  </section>
+
+  <section id="about">
+    <h3>👨‍💻 About Me</h3>
+    <p>I’m a developer passionate about automation, bots, scripts, and reverse engineering. I love blending anime, tech, and chaos.</p>
+    <p>Telegram & GitHub: <a href="https://t.me/aayco" target="_blank">@aayco</a> & <a href="https://github.com/aayco" target="_blank">github.com/aayco</a></p>
+  </section>
+
+  <section id="skills">
+    <h3>🛠 Languages & Tools</h3>
+    <div class="icons">
+      <i class="fab fa-python" title="Python"></i>
+      <i class="fab fa-js" title="JavaScript"></i>
+      <i class="fas fa-code" title="C / C++"></i>
+      <i class="fab fa-linux" title="Linux"></i>
+      <i class="fas fa-database" title="SQLite"></i>
+      <i class="fas fa-terminal" title="CLI tools"></i>
+      <i class="fab fa-android" title="Android Dev"></i>
+      <i class="fab fa-github" title="GitHub"></i>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h3>📂 My GitHub Projects</h3>
+    <div id="project-list"></div>
+  </section>
+
+  <section id="contact">
+    <h3>📬 Contact Me</h3>
+    <p>Telegram: <a href="https://t.me/aayco" target="_blank">@aayco</a></p>
+  </section>
+
+  <footer>
+    <p>Made with ❤️ by aayco | © 2025</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      if (body.style.background === "white") {
+        body.style.background = "black";
+        body.style.color = "white";
+      } else {
+        body.style.background = "white";
+        body.style.color = "black";
+      }
+    }
+
+    function createSnowflake() {
+      const snow = document.querySelector('.snow');
+      const flake = document.createElement('div');
+      flake.className = 'snowflake';
+      flake.innerHTML = '❄️';
+      flake.style.left = Math.random() * window.innerWidth + 'px';
+      flake.style.animationDuration = 3 + Math.random() * 5 + 's';
+      flake.style.opacity = Math.random();
+      flake.style.fontSize = Math.random() * 10 + 10 + 'px';
+      snow.appendChild(flake);
+      setTimeout(() => snow.removeChild(flake), 8000);
+    }
+    setInterval(createSnowflake, 200);
+
+    async function loadProjects() {
+      const res = await fetch('https://api.github.com/users/aayco/repos?sort=updated');
+      const data = await res.json();
+      const container = document.getElementById('project-list');
+      data.forEach(repo => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h4>📦 ${repo.name}</h4>
+          <p>${repo.description || 'No description'}</p>
+          <a href="${repo.html_url}" target="_blank">View on GitHub</a>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    loadProjects();
+  </script>
+</body>
+    </html>
